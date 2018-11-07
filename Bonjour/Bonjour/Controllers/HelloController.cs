@@ -44,7 +44,7 @@ namespace Bonjour.Controllers
                     return $"Bonjour {name}!";
                 case "italian":
                     return $"Ciao {name}!";   
-                case "portugese":
+                case "portuguese":
                     return $"Ola {name}!";
                 case "spanish":
                     return $"Hola {name}!";        
