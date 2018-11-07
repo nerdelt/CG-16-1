@@ -10,5 +10,9 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Index.cshtml~" />
   </ItemGroup>
 </Project>

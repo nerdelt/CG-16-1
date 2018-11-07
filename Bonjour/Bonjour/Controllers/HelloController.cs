@@ -6,23 +6,24 @@ namespace Bonjour.Controllers
 {
     public class HelloController : Controller
     {
+        private string Message { get; set; }
+
         // GET: /<controller>/
+        [HttpGet]
+        [Route("/Hello")]
         public IActionResult Index()
         {
-            string html = "<form method='post' action='/Hello'> " +
-                "<input type='text' name='name'/>" +
-                "<input type='submit' value='Greet Me!' />" +
-                "</form>";
 
-            return Content(html, "text/html");
+            return View();
         }
 
 
         [Route("/Hello")]
         [HttpPost]
-        public IActionResult Display(string name = "World")
+        public IActionResult Display(string name, string language)
         {
-            return Content(string.Format("<h1>Hello {0}!<h1>", name), "text/html");
+            Message = CreateMessage(name, language);
+            return Content(string.Format("<h1>{0}<h1>", Message),"text/html");
         }
 
         [Route("/Hello/{name}")]
@@ -31,7 +32,28 @@ namespace Bonjour.Controllers
             return Content(string.Format("<h1>Hello {0}!<h1>", name), "text/html");
         }
 
-       
+
+        public static string CreateMessage(string name, string language)
+        {
+            switch (language)
+            {
+               
+                case "english":
+                    return $"Hello {name}!";
+                case "french":
+                    return $"Bonjour {name}!";
+                case "italian":
+                    return $"Ciao {name}!";   
+                case "portugese":
+                    return $"Ola {name}!";
+                case "spanish":
+                    return $"Hola {name}!";        
+                default:
+                    return $"Hi {name}!";
+            }
+                
+
+        }
 
        /* [Route ("/Hello/Aloha")]
         public IActionResult Goodbye()
