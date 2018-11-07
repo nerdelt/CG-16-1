@@ -33,10 +33,11 @@ namespace Bonjour.Controllers
 
        
 
-        [Route ("/Hello/Aloha")]
+       /* [Route ("/Hello/Aloha")]
         public IActionResult Goodbye()
         {
             return Content("Goodbye!");
         }
+        */
     }
 }
